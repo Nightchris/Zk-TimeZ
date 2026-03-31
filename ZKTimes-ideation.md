@@ -1351,6 +1351,95 @@ For anyone new to this concept, here's the simplest way to think about ZK TimesZ
 
 ---
 
+## Appendix D: Midnight Passport Integration — The Key to Cheap Fact-Checker Onboarding
+
+### The Midnight Passport Demo (Transcript)
+
+> *Source: Midnight Passport Concept Demo*
+>
+> "Welcome to Midnight. Here I'm going to showcase different experiences we're exploring with the Midnight Passport concept where it enables seamless interactions between different applications and your identity and credentials.
+>
+> Let's explore the streaming service. I'm able to continue without having to create a wallet or worry about a seed phrase. Notice here that some content is hidden behind an age verification step. I can do that using my health profile which is part of my midnight passport. There I have already verified my age. So I'm going to go ahead and approve with passport.
+>
+> Notice that the age restriction is gone from this content and I'm able to view it. If I go to my passport I'm able to see that in my health profile I've shared this age verification credentials with the streaming service.
+>
+> Now, let's explore a different experience. Let's say I'd like to trade some shielded RWAs. This strategy requires me to verify that I'm an accredited investor. I can do that using my financial profile and approve with passport.
+>
+> Now, these strategies are available for me and I can go ahead and invest. Let's get some bonds. Now if I go to my profile I'm able to see that I have given this access to this specific application where they're able to see that I am an accredited investor."
+
+### Why This Changes Everything for ZK TimesZ
+
+The Midnight Passport demo proves that **cross-application ZK credential sharing is already being built on Midnight**. This is not theoretical — it's the exact infrastructure ZK TimesZ needs. Instead of building our own identity/credential system from scratch, we can **plug into Midnight Passport** as the credential layer.
+
+### Direct Mapping: Passport Profiles → ZK TimesZ Roles
+
+| Midnight Passport Profile | ZK TimesZ Application |
+|---|---|
+| **Health Profile** (age verification) | Reader age-gating for sensitive content (conflict zones, graphic reporting) |
+| **Financial Profile** (accredited investor) | **Fact-Checker Credential** — prove journalism experience, domain expertise, or institutional affiliation without revealing identity |
+| **Professional Profile** (not yet shown) | Writer credential — prove "I am a credentialed journalist" or "I have 5+ years in financial reporting" |
+| **Reputation Profile** (ZK TimesZ-specific) | Portable reputation score across all ZK TimesZ-compatible publications |
+
+### The Fact-Checker Onboarding Flow (Using Passport)
+
+```
+1. USER OPENS ZK TIMEZ
+   → "Continue with Midnight Passport" (no wallet setup, no seed phrase)
+   → Frictionless entry — just like the streaming demo
+
+2. USER WANTS TO BECOME A FACT-CHECKER
+   → App requests: "Verify fact-checker eligibility"
+   → Passport shows available credentials:
+      ├── Professional Profile: "Journalist with 2+ years experience" ✓
+      ├── Education Profile: "Degree in relevant field" ✓
+      └── Reputation Profile: "ZK TimesZ score > 3000" ✓
+   → User clicks "Approve with Passport"
+   → ZK proof generated: "This user meets fact-checker requirements"
+   → NO personal data shared — only the boolean proof
+
+3. USER CAN NOW CHALLENGE ARTICLES
+   → Their challenges carry more weight (verified credential)
+   → They qualify for higher-tier bounties
+   → Their identity remains fully private
+
+4. PASSPORT TRACKS ACCESS GRANTS
+   → User can see which apps have verified which credentials
+   → Revocable at any time
+   → Full user control over data sharing
+```
+
+### Why This Makes Fact-Checking Cheap to Incentivize
+
+The Midnight Passport solves the **cold-start problem** for fact-checkers:
+
+1. **Zero onboarding friction** — no wallet creation, no seed phrase management, no KYC forms. Just "approve with passport." This means more people can participate → more supply of fact-checkers → lower bounty costs needed to attract them.
+
+2. **Credential verification is free** — once a user has verified a credential in their Passport (for ANY Midnight app), ZK TimesZ can re-use that proof at zero additional cost. A user who verified their age for a streaming service can instantly prove their journalism credentials for ZK TimesZ.
+
+3. **Tiered fact-checking with graduated rewards** — Passport credentials enable automatic tiering:
+   - **Unverified Challenger** (anyone): Small bounties, higher challenge bond required
+   - **Verified Fact-Checker** (Passport-proven credentials): Larger bounties, lower challenge bond
+   - **Expert Fact-Checker** (domain-specific Passport credentials): Premium bounties, can serve on juries
+   
+   This means the protocol can offer **tiny bounties** to the masses (crowdsourced fact-checking) while reserving **meaningful bounties** only for verified experts — keeping total incentive costs low.
+
+4. **Cross-app reputation portability** — A fact-checker's reputation built on ZK TimesZ becomes a Passport credential usable across ALL Midnight apps. This is a powerful non-monetary incentive: "Build your fact-checker reputation here, use it everywhere."
+
+### 8-Week Buildclub MVP: "ZK Verify" with Midnight Passport
+
+This integration simplifies the MVP scope dramatically:
+
+| Week | Milestone |
+|------|-----------|
+| 1-2 | Compact contracts: Veracity Bond + Challenge (simplified, writer-concedes resolution only) |
+| 3-4 | Midnight Passport integration: credential-gated fact-checker onboarding |
+| 5-6 | Frontend: claim submission, challenge UI, Passport "approve" flow |
+| 7-8 | Basic reputation tracking, demo polish, Buildclub presentation |
+
+The Passport removes the need to build identity infrastructure — **Midnight already has it**. We just need to define what credentials qualify someone as a fact-checker and write the Compact circuits that verify those proofs.
+
+---
+
 *This document is a living ideation artifact. It will be updated as the protocol design evolves.*
 
 *Built with love by The Winner's Circle with johnny5i* 🏆
